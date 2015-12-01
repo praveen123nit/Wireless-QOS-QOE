@@ -2,11 +2,13 @@ import csv
 import json
 import glob
 import os
+from pyvirtualdisplay import Display
 from pprint import pprint
 import argparse
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+
 
 def setup_profile(url, logdir):
 	profile = webdriver.FirefoxProfile()
@@ -32,6 +34,8 @@ def setup_profile(url, logdir):
 
 def start(url, logdir, iters):
 	for i in range(iters):
+		display = Display(visible=0, size=(800, 600))
+		display.start()
 		profile = setup_profile(url, logdir)
 		browser = webdriver.Firefox(firefox_profile=profile)
 		time.sleep(5)
