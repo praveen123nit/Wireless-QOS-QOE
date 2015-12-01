@@ -1,3 +1,4 @@
+import csv
 import json
 import glob
 import os
@@ -72,6 +73,8 @@ def printAvg(logdir, outfile):
 	fp.write('On Content Load : '+ str(float(total_on_content_load/i))+'\n')
 	fp.write('On Load : '+ str(float(total_on_load/i))+'\n')
 	fp.close()
+	with open('data.csv', 'a+') as csvfile:
+		writer.writerow({'Site': title, 'Iterations': i, 'Avg Content Load Time': float(total_on_content_load/i), 'Avg On Load Time' : float(total_on_load/i)})
 		
 
 def main():

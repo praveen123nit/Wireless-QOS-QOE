@@ -18,6 +18,11 @@ def main():
 	parser.add_argument('--iters', help = "number of reloads of the page to find avg. page load time")
 	args = parser.parse_args()
 	#print args.outfile
+	os.remove("data.csv")
+	with open('data.csv', 'a+') as csvfile:
+		fieldnames = ['Site', 'Iterations', 'Avg Content Load Time', 'Avg On Load Time']
+		writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+		writer.writeheader()
 	run(int(args.iters), args.outfile)
 
 if __name__ == "__main__":
