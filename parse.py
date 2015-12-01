@@ -26,7 +26,6 @@ for f in files:
 with open('names.csv', 'w') as csvfile:
     fieldnames = ['Site', 'Iterations', 'Avg Content Load Time', 'Avg On Load Time']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
     writer.writeheader()
     writer.writerow({'Site': title, 'Iterations': i, 'Avg Content Load Time': float(total_on_content_load/i), 'Avg On Load Time' : float(total_on_load/i)})
 print '---------------PAGE LOAD TIMES over', i, ' Iterations-----------'
