@@ -1,10 +1,8 @@
-#python har_file_generator.py --url http://localhost/NDTV/ --logdir /usr/vishnu/wireless/output
 import csv
 import os
 import argparse
 
-#sites = ['NDTV', '9GAG', 'Airbnb', 'BBC', 'eBay', 'ESPN', 'Google', 'NDTV', 'Netflix', 'reddit', 'Snapdeal', 'StackOverflow', 'TOI', 'WIRED', 'YouTube']
-sites = ['NDTV', '9GAG', 'Airbnb']
+sites = ['NDTV', '9GAG', 'Airbnb', 'BBC', 'eBay', 'ESPN', 'Google', 'Netflix', 'reddit', 'Snapdeal', 'StackOverflow', 'TOI', 'WIRED', 'YouTube']
 
 def run(iters, outfile, host):
 	pw_dir = os.path.dirname(os.path.realpath(__file__)) 
@@ -17,7 +15,7 @@ def main():
 	parser = argparse.ArgumentParser(description="Open webpages and trigger net export ")
 	parser.add_argument('--outfile', help = "output file to write the page load time")
 	parser.add_argument('--iters', help = "number of reloads of the page to find avg. page load time")
-	parser.add_argument('--host', help = "number of reloads of the page to find avg. page load time")
+	parser.add_argument('--host', help = "Wifi hosts IP address")
 	args = parser.parse_args()
 	try:
 		os.remove(args.outfile)
