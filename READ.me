@@ -1,1 +1,9 @@
 python runner.py --outfile output.csv --iters 1 --host 10.245.206.250
+
+#tc netem commands:
+#List the current rules
+1) tc -s qdisc ls dev wlan0
+#Add a delay of 500ms
+2) sudo tc qdisc add dev wlan0 root netem delay 500ms  
+#Delete all rules
+3) tc qdisc del dev wlan0 root
